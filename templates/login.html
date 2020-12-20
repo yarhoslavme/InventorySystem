@@ -1,0 +1,26 @@
+{% extends "_layout.html" %}
+
+{% block contenido %}
+    {% from "_formhelpers.html" import render_field %}
+    <h1>Inicio de sesión</h1>
+    <div class="px-2">
+        <form class="border border-primary" action="" method="post" novalidate>
+            <div class="form-group col">
+                {{ form.hidden_tag() }}
+                <dl>
+                    {{ render_field(form.usuario) }}
+                    {{ render_field(form.password) }}
+                </dl>
+                <p>{{ form.enviar() }}</p>
+            </div>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="text-warning"> {{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+{% endblock %}

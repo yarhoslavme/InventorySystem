@@ -17,7 +17,7 @@ def usuario_by_username(username):
     strsql = "SELECT * FROM usuarios WHERE username = ?"
     con = sql_connection()
     cursor = con.cursor()
-    cursor.execute(strsql, username)
+    cursor.execute(strsql, [username])
     usuario = cursor.fetchone()
     con.close()
     return usuario

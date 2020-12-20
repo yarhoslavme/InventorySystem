@@ -1,0 +1,17 @@
+{% extends "_layout.html" %}
+
+{% block contenido %}
+<h1>Registrarse</h1>
+
+<form name="formulario" method="post" action="" onsubmit="return validar_form_registrar_usuario()">
+  <label for="usuario">Usuario</label>
+  <input name="usuario" id="usuario" >
+  <label for="email">Correo Electronico</label>
+  <input name="email" id="email" >
+  <label for="password">Contraseña</label>
+  <input type="password" name="password" id="password" >
+  <img src="{{ url_for('static', filename='images/show_pwd.png') }}" onmouseover="mostrarPassword();" onmouseout="ocultarPassword();" />
+  <input type="submit" value="Registrarse">
+</form>
+
+{% endblock %}
